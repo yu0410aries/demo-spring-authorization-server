@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: demo
+  datasource:
+    url: jdbc:postgresql://postgresql.baasid.tw:5432/springauthdemo2
+    username: baasid
+    password: 2BWw45mFx48qiFrk
+    driver-class-name: org.postgresql.Driver
