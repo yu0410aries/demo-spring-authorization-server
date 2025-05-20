@@ -1,5 +1,7 @@
 package com.baasid.demospringauthorizationserver2.config;
 
+import com.baasid.demospringauthorizationserver2.mapper.CustomUserInfoMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
@@ -12,6 +14,10 @@ import org.springframework.security.web.authentication.LoginUrlAuthenticationEnt
 
 @Configuration
 public class SecurityConfig {
+
+    @Autowired
+    CustomUserInfoMapper customUserInfoMapper;
+
     @Bean
     @Order(1)
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -24,7 +30,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorize -> authorize.anyRequest().authenticated())     // 要求這些路徑都要處於登入狀態才能用
                 .csrf(csrf -> csrf.ignoringRequestMatchers(authorizationServerConfigurer.getEndpointsMatcher()))    // 禁用這些路徑的 CSRF
                 .with(authorizationServerConfigurer, configurer -> {
-                    configurer.oidc(Customizer.withDefaults());     // 啟用 OpenID Connect 支援 (用預設設定)，除了 OAuth2 授權碼，還有 ID Token、UserInfo、Discovery 端點等
+                    configurer.oidc(oidc -> oidc.userInfoEndpoint(userinfo -> userinfo.userInfoMapper(customUserInfoMapper.createCustomUserInfoMapper())));     // 啟用 OpenID Connect 支援 (用預設設定)，除了 OAuth2 授權碼，還有 ID Token、UserInfo、Discovery 端點等
                 });
 
         http
