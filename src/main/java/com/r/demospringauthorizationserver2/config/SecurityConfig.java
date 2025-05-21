@@ -1,6 +1,6 @@
-package com.baasid.demospringauthorizationserver2.config;
+package com.r.demospringauthorizationserver2.config;
 
-import com.baasid.demospringauthorizationserver2.mapper.CustomUserInfoMapper;
+import com.r.demospringauthorizationserver2.mapper.CustomUserInfoMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

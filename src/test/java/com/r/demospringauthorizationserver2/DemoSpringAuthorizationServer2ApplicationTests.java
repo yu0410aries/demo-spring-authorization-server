@@ -1,4 +1,4 @@
-package com.baasid.demospringauthorizationserver2;
+package com.r.demospringauthorizationserver2;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

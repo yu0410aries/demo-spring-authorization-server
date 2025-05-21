@@ -1,4 +1,4 @@
-package com.baasid.demospringauthorizationserver2.model;
+package com.r.demospringauthorizationserver2.model;
 
 import lombok.Data;
 

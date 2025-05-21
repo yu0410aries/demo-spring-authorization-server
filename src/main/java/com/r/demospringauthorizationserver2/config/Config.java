@@ -1,4 +1,4 @@
-package com.baasid.demospringauthorizationserver2.config;
+package com.r.demospringauthorizationserver2.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;
